@@ -1,22 +1,20 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import FastImage from 'react-native-fast-image';
-import {ShoppingCartIcon} from 'react-native-heroicons/solid';
+import {
+  ArrowSmallLeftIcon,
+  ShoppingCartIcon,
+} from 'react-native-heroicons/solid';
 import {useNavigation} from '@react-navigation/native';
 
-const Header = () => {
+const CommonHeader = () => {
   const navigation = useNavigation();
   return (
-    <View className="w-full border-b-[1px] py-1 border-b-gray-400 flex-row px-4 items-center justify-between mb-4">
+    <View className="flex-row items-center justify-between px-4 py-1">
       <TouchableOpacity
-        // @ts-ignore
-        onPress={() => navigation.navigate('Home')}
-        className="w-32 h-12 bg-amazon_blue items-center justify-center">
-        <FastImage
-          resizeMode="contain"
-          source={require('../img/logo.png')}
-          className="w-24 h-12 mt-1"
-        />
+        onPress={() => navigation.goBack()}
+        className="flex-row">
+        <ArrowSmallLeftIcon size={20} color="#131921" />
+        <Text className="ml-1 text-amazon_blue font-semibold">Home</Text>
       </TouchableOpacity>
       <TouchableOpacity
         // @ts-ignore
@@ -31,4 +29,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default CommonHeader;
