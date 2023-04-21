@@ -5,8 +5,10 @@ import {
   ShoppingCartIcon,
 } from 'react-native-heroicons/solid';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 const CommonHeader = () => {
+  const productData = useSelector((state: any) => state.amazon.products);
   const navigation = useNavigation();
   return (
     <View className="flex-row items-center justify-between px-4 py-1">
@@ -22,7 +24,11 @@ const CommonHeader = () => {
         className="relative">
         <ShoppingCartIcon size={25} color="#131921" />
         <View className="absolute right-0 top-4 bg-amazon_blue w-4 h-4 rounded-full items-center justify-center">
-          <Text className="text-xs text-white">0</Text>
+          {productData ? (
+            <Text className="text-xs text-white">{productData.length}</Text>
+          ) : (
+            <Text className="text-xs text-white">0</Text>
+          )}
         </View>
       </TouchableOpacity>
     </View>

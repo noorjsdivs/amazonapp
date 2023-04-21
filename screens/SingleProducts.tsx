@@ -4,9 +4,13 @@ import FastImage from 'react-native-fast-image';
 import {StarIcon} from 'react-native-heroicons/solid';
 import CommonHeader from '../src/components/CommonHeader';
 import FormattedPrice from '../src/components/FormattedPrice';
+import {useDispatch} from 'react-redux';
+import {addToCart} from '../redux/AmazonSlice';
 
 const SingleProducts = ({route}: any) => {
   const {item} = route.params;
+  // @ts-ignore
+  const dispatch = useDispatch();
 
   return (
     <View className="bg-white py-8 relative">
@@ -45,7 +49,21 @@ const SingleProducts = ({route}: any) => {
             <Text className="text-xs text-gray-600">(100 reviws)</Text>
           </View>
         </View>
-        <TouchableOpacity className="w-full h-12 bg-amazon_yellow items-center justify-center rounded-full mt-2">
+        <TouchableOpacity
+          onPress={() =>
+            dispatch(
+              addToCart({
+                id: item.id,
+                title: item.title,
+                price: item.price,
+                description: item.description,
+                image: item.image,
+                rating: item.rating,
+                quantity: 1,
+              }),
+            )
+          }
+          className="w-full h-12 bg-amazon_yellow items-center justify-center rounded-full mt-2">
           <Text className="font-semibold text-lg text-amazon_blue">
             Add to Cart
           </Text>
