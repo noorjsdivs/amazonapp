@@ -6,6 +6,7 @@ import SingleProducts from './screens/SingleProducts';
 import Cart from './screens/Cart';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
+import Payment from './screens/Payment';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ const App = () => {
           <Stack.Screen
             name="Cart"
             component={Cart}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Payment"
+            component={Payment}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

@@ -13,12 +13,15 @@ const Header = () => {
       <TouchableOpacity
         // @ts-ignore
         onPress={() => navigation.navigate('Home')}
-        className="w-32 h-12 bg-amazon_blue items-center justify-center">
-        <FastImage
+        className="py-2">
+        {/* <FastImage
           resizeMode="contain"
           source={require('../img/logo.png')}
           className="w-24 h-12 mt-1"
-        />
+        /> */}
+        <Text className="text-lg text-amazon_blue font-bold underline">
+          Noorshop
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         // @ts-ignore

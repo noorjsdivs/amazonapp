@@ -7,7 +7,11 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 
-const CommonHeader = () => {
+type Title = {
+  title: string;
+};
+
+const CommonHeader = ({title}: Title) => {
   const productData = useSelector((state: any) => state.amazon.products);
   const navigation = useNavigation();
   return (
@@ -16,7 +20,7 @@ const CommonHeader = () => {
         onPress={() => navigation.goBack()}
         className="flex-row">
         <ArrowSmallLeftIcon size={20} color="#131921" />
-        <Text className="ml-1 text-amazon_blue font-semibold">Home</Text>
+        <Text className="ml-1 text-amazon_blue font-semibold">{title}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         // @ts-ignore

@@ -15,7 +15,7 @@ const SingleProducts = ({route}: any) => {
   return (
     <View className="bg-white py-8 relative">
       <View className="absolute w-full top-2">
-        <CommonHeader />
+        <CommonHeader title="Home" />
       </View>
       <View className="px-2">
         <FastImage
