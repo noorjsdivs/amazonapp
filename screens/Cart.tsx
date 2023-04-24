@@ -27,13 +27,13 @@ const Cart = () => {
       <CommonHeader title="Home" />
 
       {productData.length > 0 ? (
-        <View>
+        <ScrollView>
           <FlatList
             data={productData}
             renderItem={({item}) => (
-              <ScrollView>
+              <View className="h-20">
                 <CartProduct item={item} />
-              </ScrollView>
+              </View>
             )}
             keyExtractor={item => item.id}
           />
@@ -59,14 +59,14 @@ const Cart = () => {
               <TouchableOpacity
                 // @ts-ignore
                 onPress={() => navigation.navigate('Payment')}
-                className="w-56 bg-green-600 mx-auto items-center py-3 rounded-2xl">
+                className="w-56 bg-green-600 mx-auto items-center py-3 rounded-2xl mb-10">
                 <Text className="text-base text-white font-medium">
                   Proceed to Checkout
                 </Text>
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </ScrollView>
       ) : (
         <View className="items-center mt-4">
           <Text className="text-lg font-semibold text-red-600">

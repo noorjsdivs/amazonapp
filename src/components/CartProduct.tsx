@@ -13,12 +13,12 @@ import {MinusIcon, PlusIcon} from 'react-native-heroicons/solid';
 const CartProduct = ({item}: any) => {
   const dispatch = useDispatch();
   return (
-    <View className="w-full flex-row items-center justify-between px-2 border-b-[1px] border-gray-400 py-2">
+    <View className="w-full h-full flex-row items-center justify-between px-2 border-b-[1px] border-gray-400 py-2">
       <View className="w-1/6 mr-2">
         <FastImage
           resizeMode="contain"
           source={{uri: item.image}}
-          className="w-full h-20 mt-1"
+          className="w-full h-full mt-1"
         />
       </View>
       <View className="w-3/6 flex-1 h-full justify-center gap-3">
@@ -74,7 +74,7 @@ const CartProduct = ({item}: any) => {
       <View className="w-1/6 ml-2">
         <TouchableOpacity
           onPress={() => dispatch(deleteItem(item.id))}
-          className="bg-red-500 px-2 py-1 rounded-md">
+          className="bg-red-500 px-2 py-1 rounded-md items-center justify-center">
           <Text className="text-white">Delete</Text>
         </TouchableOpacity>
       </View>
