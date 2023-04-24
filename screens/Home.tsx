@@ -38,7 +38,20 @@ const Home = () => {
           </Text>
         )}
       </View>
+
       <ScrollView className="mb-12">
+        <View className="px-6">
+          <Text className="font-semibold text-lg text-amazon_blue">
+            Noor online shopping Store
+          </Text>
+          <Text className="font-medium text-gray-500 mb-4">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad
+            pariatur nihil animi accusantium eveniet voluptatum officia ab
+            aperiam saepe expedita, suscipit est ea! Nemo explicabo laborum
+            perferendis enim optio inventore asperiores tempora nostrum!
+            Recusandae, sequi!
+          </Text>
+        </View>
         <View className="w-full px-6 mx-auto">
           {product.map(item => (
             <Products key={item.id} item={item} />
