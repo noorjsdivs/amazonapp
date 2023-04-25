@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CommonHeader from '../src/components/CommonHeader';
 import {useSelector} from 'react-redux';
@@ -20,19 +20,19 @@ const Payment = () => {
   return (
     <View>
       <CommonHeader title="Cart" />
-      <View className="px-4">
-        <Text>Your Payment details as follows:</Text>
-        <View>
-          <Text className="text-lg">
-            Total amount:{' '}
-            <Text className="font-semibold text-amazon_blue">
-              <FormattedPrice amount={totalAmt} />
-            </Text>
+      <View className="p-4 gap-1">
+        <Text className="text-gray-800">Your Payment details as follows:</Text>
+        <Text className="text-lg text-black">
+          Total amount:{' '}
+          <Text className="font-bold text-amazon_blue">
+            <FormattedPrice amount={totalAmt} />
           </Text>
-          <Text className="mt-2 text-yellow-600">
-            Various payment options will be available soon...
+        </Text>
+        <TouchableOpacity className="w-full bg-amazon_blue p-3 rounded-lg">
+          <Text className="text-white text-lg font-semibold text-center">
+            Stripe Payment
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
